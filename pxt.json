@@ -8,7 +8,9 @@
     "files": [
         "snake.md",
         "tetris.md",
-        "simon.md"
+        "simon.md",
+        "rockPaperScissors.md",
+        "bullsAndCows.md"
     ],
     "targetVersions": {
         "target": "1.6.8",
