@@ -10,7 +10,8 @@
         "tetris.md",
         "simon.md",
         "rockPaperScissors.md",
-        "bullsAndCows.md"
+        "bullsAndCows.md",
+        "panelDePon.md"
     ],
     "targetVersions": {
         "target": "1.6.8",
