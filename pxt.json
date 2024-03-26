@@ -1,5 +1,5 @@
 {
-    "name": "educationcontent",
+    "name": "gamecodeContent",
     "version": "8.0.2",
     "dependencies": {
         "core": "*",
