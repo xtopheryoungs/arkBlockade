@@ -129,22 +129,6 @@ player.onItemInteracted(SNOWBALL, function () {
     )
     autoDown = true
 })
-function initializeGrid () {
-    newGrid = []
-    i = 0
-    for (let index = 0; index < GRID_HEIGHT; index++) {
-        j = 0
-        for (let index = 0; index < GRID_WIDTH; index++) {
-            newGrid.push(j == 0 || j == GRID_WIDTH - 1)
-            if (i == 0) {
-                newGrid[j] = !(newGrid.pop())
-            }
-            j += 1
-        }
-        i += 1
-    }
-    return newGrid
-}
 player.onItemInteracted(DIAMOND_SWORD, function () {
     player.runChatCommand("run")
 })
@@ -276,7 +260,19 @@ player.onChat("run", function () {
     ORIGIN,
     pos(0, 1, -5)
     )
-    grid = initializeGrid()
+    grid = []
+    i = 0
+    for (let index = 0; index < GRID_HEIGHT; index++) {
+        j = 0
+        for (let index = 0; index < GRID_WIDTH; index++) {
+            grid.push(j == 0 || j == GRID_WIDTH - 1)
+            if (i == 0) {
+                grid[j] = !(grid.pop())
+            }
+            j += 1
+        }
+        i += 1
+    }
     blockBag = makeFullBlockBag()
     setup(BOARD_ORIGIN)
     gameOver = false
@@ -302,7 +298,7 @@ player.onChat("run", function () {
         1
         )
         while (blockCanMove(grid, TETRIS_BLOCKS[blockIndex][rotationIndex], relativeBlockPosition, UNIT_DOWN)) {
-            counter = GAME_SPEED
+            counter = 8
             while (counter > 0) {
                 if (blockCanMove(grid, TETRIS_BLOCKS[blockIndex][rotationIndex], relativeBlockPosition, UNIT_DOWN)) {
                     relativeBlockPosition = positions.add(
@@ -800,19 +796,17 @@ let blockIndex = 0
 let previewBlockIndex = 0
 let gameOver = false
 let blockBag: number[] = []
+let j = 0
 let grid: boolean[] = []
 let BUTTON_TEMPLATE_ANCHOR: Position = null
 let ORIGIN: Position = null
 let y = 0
 let x = 0
-let j = 0
-let newGrid: boolean[] = []
 let autoDown = false
 let BUTTONS_ANCHOR: Position = null
 let i = 0
 let PREVIEW_ANCHOR: Position = null
 let BOARD_ORIGIN: Position = null
-let GAME_SPEED = 0
 let BUTTON_TEMPLATE_OFFSET: Position = null
 let SPAWN_POINT_OFFSET: Position = null
 let GAME_OVER_INDEX = 0
@@ -869,7 +863,6 @@ UNIT_RIGHT = pos(1, 0, 0)
 GAME_OVER_INDEX = BOARD_HEIGHT * GRID_WIDTH + Math.idiv(BOARD_WIDTH, 2)
 SPAWN_POINT_OFFSET = pos(Math.idiv(BOARD_WIDTH, 2) - 2, BOARD_HEIGHT - 2, 1)
 BUTTON_TEMPLATE_OFFSET = pos(2, 0, 0)
-GAME_SPEED = 16
 player.execute(
 "clear"
 )
@@ -878,6 +871,7 @@ mobs.target(NEAREST_PLAYER),
 DIAMOND_SWORD,
 1
 )
+
 
 ```
     
