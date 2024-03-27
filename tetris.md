@@ -2,9 +2,9 @@
 
 ## Step 1
 
-Fly up into the air, use the sword to start a game of snake.  Look left/right of the board to move falling pieces left/right.
+Fly up into the air, use the sword to start a game of snake.  Look left/right of the board to move the falling pieces left/right.
 
-Break the glass blocks to rotate falling pieces.  Throw a snowball to send a falling piece straight down very quickly.
+Break the glass blocks to rotate the falling pieces.  Throw a snowball to send a falling piece straight down very quickly.
 
 ```template
 function showPreviewBlock (block: number) {
