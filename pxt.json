@@ -11,7 +11,8 @@
         "simon.md",
         "rockPaperScissors.md",
         "bullsAndCows.md",
-        "panelDePon.md"
+        "panelDePon.md",
+        "2048.md"
     ],
     "targetVersions": {
         "target": "1.6.8",
