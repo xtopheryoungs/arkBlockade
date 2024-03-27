@@ -2,13 +2,16 @@
 
 ## Step 1
 
-Type "play" in chat to start a match.  Try to crack the code.
+Throw a snowball to start the game.  Try to deduce the 4-block code.
 
-Place a block under the agent to enter one element of the code.
+Place a block under the agent to enter one part of the code.
 
 ```template
 player.onChat("here", function () {
     agent.teleportToPlayer()
+})
+player.onItemInteracted(SNOWBALL, function () {
+    player.runChatCommand("play")
 })
 function showHits (count: number, blockType: number) {
     for (let index = 0; index < count; index++) {
@@ -131,6 +134,10 @@ COLOR_MATCH = SEA_LANTERN
 GROUND = agent.inspect(AgentInspection.Block, DOWN)
 ALLOW = blocks.blockByName("allow")
 CODE_SIZE = 4
-
+mobs.give(
+mobs.target(NEAREST_PLAYER),
+SNOWBALL,
+1
+)
 ```
     
