@@ -1,14 +1,16 @@
 # Simon
 
 ## Step 1
-
-Type "play" in chat to start a game.  Recreate the ever-growing block sequence shown by the agent.
+Throw a snowball to start the game.  Recreate the ever-growing block sequence shown by the agent.
 
 Place blocks underneath the agent.  You only have a short amount of time to place each block.
 
 ```template
 player.onChat("here", function () {
     agent.teleportToPlayer()
+})
+player.onItemInteracted(SNOWBALL, function () {
+    player.runChatCommand("play")
 })
 function givePlayerBlocks () {
     for (let value of BLOCKS) {
@@ -149,6 +151,10 @@ N_BLOCKS = BLOCKS.length
 LONG = 40
 MEDIUM = 20
 SHORT = 10
-
+mobs.give(
+mobs.target(NEAREST_PLAYER),
+SNOWBALL,
+1
+)
 ```
     
